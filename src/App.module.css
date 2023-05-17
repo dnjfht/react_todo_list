@@ -22,14 +22,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  position: relative;
 }
 
 .InputAppearBtn {
   background-color: transparent;
   border: none;
 
-  position: relative;
-  bottom: 40px;
+  position: absolute;
+  bottom: -46px;
 }
 
 .NavBar {
@@ -50,7 +52,7 @@
 
 .TodoList {
   width: 100%;
-  height: 440px;
+  height: 300px;
   margin-top: 20px;
   padding: 0 10px;
   box-sizing: border-box;

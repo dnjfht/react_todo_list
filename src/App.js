@@ -94,20 +94,20 @@ function App() {
         <TodoList filtered={filtered} />
 
         {appear && <InputWrap />}
-      </div>
 
-      <button
-        onClick={() => {
-          setAppear((prev) => !prev);
-        }}
-        className={styles.InputAppearBtn}
-      >
-        {appear ? (
-          <BsFillXCircleFill style={{ fontSize: 80, color: "#ff6b6b" }} />
-        ) : (
-          <BsFillPlusCircleFill style={{ fontSize: 80, color: "#38d9a9" }} />
-        )}
-      </button>
+        <button
+          onClick={() => {
+            setAppear((prev) => !prev);
+          }}
+          className={styles.InputAppearBtn}
+        >
+          {appear ? (
+            <BsFillXCircleFill style={{ fontSize: 80, color: "#ff6b6b" }} />
+          ) : (
+            <BsFillPlusCircleFill style={{ fontSize: 80, color: "#38d9a9" }} />
+          )}
+        </button>
+      </div>
     </div>
   );
 }
