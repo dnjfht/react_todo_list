@@ -20,9 +20,9 @@ export default function NavBar({
         className={styles.DarkModeBtn}
       >
         {darkMode ? (
-          <CiLight style={{ fontSize: 24 }} />
+          <CiLight style={{ fontSize: 24, color: "var(--color-accent)" }} />
         ) : (
-          <CiDark style={{ fontSize: 24 }} />
+          <CiDark style={{ fontSize: 24, color: "var(--color-accent)" }} />
         )}
       </button>
 
