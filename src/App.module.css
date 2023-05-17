@@ -2,8 +2,32 @@
   width: 100%;
   height: 100vh;
   background-color: var(--color-bg);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .Box {
-  width: 500px;
+  width: 400px;
+  height: 560px;
+  background-color: var(--color-white);
+  border-radius: 14px;
+
+  box-shadow: 3px 4px 10px var(--color-shadow);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+}
+
+.InputAppearBtn {
+  background-color: transparent;
+  border: none;
+
+  position: absolute;
+  bottom: -46px;
 }
