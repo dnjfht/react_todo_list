@@ -26,14 +26,15 @@ export default function NavBar({
         )}
       </button>
 
-      <ul>
+      <ul className={styles.FilterNav}>
         {filters.map((f, index) => {
           return (
-            <li key={index}>
+            <li key={index} className={styles.FilterList}>
               <button
                 onClick={() => {
                   setFilter(f);
                 }}
+                className={styles.FilterBtn}
               >
                 {f}
               </button>

@@ -49,9 +49,28 @@
   border: none;
 }
 
+.FilterNav {
+  display: flex;
+  flex-direction: row;
+
+  list-style: none;
+}
+
+.FilterList {
+  margin-left: 10px;
+}
+
+.FilterBtn {
+  background-color: transparent;
+  border: none;
+
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
 .TodoList {
   width: calc(100% - 40px);
-  height: 300px;
+  height: 330px;
   margin: 20px;
   padding: 10px;
   box-sizing: border-box;
