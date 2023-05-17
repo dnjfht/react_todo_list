@@ -60,6 +60,7 @@ const initialState = [
 
 function App() {
   const [todos, setTodos] = useState(initialState);
+  const [title, setTitle] = useState("");
   const [appear, setAppear] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
@@ -78,7 +79,42 @@ function App() {
     }
   }
 
-  console.log(filtered);
+  const handleOnChangeTitle = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const handleOnClickAddTodo = (e) => {
+    e.preventDefault();
+
+    let today = new Date();
+
+    const day = ["일", "월", "화", "수", "목", "금", "토"];
+
+    const newTodo = {
+      id: uuidv4(),
+      date: `${today.getFullYear()}년 ${today.getMonth()}월 ${today.getDate()}일`,
+      day: `${day[today.getDay()]}요일`,
+      title: title,
+      isActive: false,
+    };
+
+    setTodos((prev) => [...prev, newTodo]);
+
+    setTitle("");
+  };
+
+  const handleOnClickStatsSwitch = (id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, isActive: !todo.isActive };
+        }
+        return todo;
+      })
+    );
+  };
+
+  console.log(todos);
 
   return (
     <div className={styles.Wrap}>
@@ -91,9 +127,18 @@ function App() {
           setFilter={setFilter}
         />
 
-        <TodoList filtered={filtered} />
+        <TodoList
+          filtered={filtered}
+          handleOnClickStatsSwitch={handleOnClickStatsSwitch}
+        />
 
-        {appear && <InputWrap />}
+        {appear && (
+          <InputWrap
+            handleOnClickAddTodo={handleOnClickAddTodo}
+            handleOnChangeTitle={handleOnChangeTitle}
+            title={title}
+          />
+        )}
 
         <button
           onClick={() => {

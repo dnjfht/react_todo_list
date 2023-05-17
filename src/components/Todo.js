@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "../App.module.css";
 import { ImQuill } from "react-icons/im";
+import { BsCircle, BsCheckCircle } from "react-icons/bs";
+import { HiTrash } from "react-icons/hi";
 
-export default function Todo({ filterTodo }) {
+export default function Todo({ filterTodo, handleOnClickStatsSwitch }) {
   return (
     <div key={filterTodo.id} className={styles.Todo}>
       <ImQuill
@@ -14,6 +16,11 @@ export default function Todo({ filterTodo }) {
           left: -2,
         }}
       />
+
+      <button onClick={() => handleOnClickStatsSwitch(filterTodo.id)}>
+        {filterTodo.isActive ? <BsCircle /> : <BsCheckCircle />}
+      </button>
+
       <h2 style={{ margin: 0, color: "var(--color-text)" }}>
         {filterTodo.date}
       </h2>
