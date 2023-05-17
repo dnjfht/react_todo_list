@@ -20,14 +20,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  position: relative;
 }
 
 .InputAppearBtn {
   background-color: transparent;
   border: none;
 
-  position: absolute;
-  bottom: -46px;
+  position: relative;
+  bottom: 40px;
 }
