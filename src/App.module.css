@@ -29,3 +29,24 @@
   position: relative;
   bottom: 40px;
 }
+
+.NavBar {
+  width: calc(100% - 40px);
+  height: 60px;
+  margin: 0 20px;
+  border-bottom: 1px solid var(--color-bg);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.DarkModeBtn {
+  background-color: transparent;
+  border: none;
+}
+
+.DarkModeIcon {
+  font-size: 20;
+}

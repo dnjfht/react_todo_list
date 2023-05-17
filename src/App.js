@@ -2,15 +2,27 @@ import { useState } from "react";
 import styles from "./App.module.css";
 import { BsFillPlusCircleFill, BsFillXCircleFill } from "react-icons/bs";
 import InputWrap from "./components/InputWrap";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [appear, setAppear] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
-  console.log(appear);
+  const filters = ["All", "Active", "Completed"];
+  const [filter, setFilter] = useState(filters[0]);
 
   return (
     <div className={styles.Wrap}>
-      <div className={styles.Box}>{appear && <InputWrap />}</div>
+      <div className={styles.Box}>
+        <NavBar
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+          filters={filters}
+          filter={filter}
+          setFilter={setFilter}
+        />
+        {appear && <InputWrap />}
+      </div>
 
       <button
         onClick={() => {
