@@ -250,6 +250,21 @@
   margin-right: 20px;
   background-color: transparent;
   border: none;
+
+  cursor: pointer;
+}
+
+.DetailDeleteeBtn {
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  transition: all 0.5s;
+}
+
+.DetailDeleteeBtn:hover {
+  transform: rotate(2turn);
 }
 
 .GoHomeBtn {

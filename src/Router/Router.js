@@ -29,6 +29,7 @@ export default function Router({
             <Detail
               todos={todos}
               handleOnClickStatsSwitch={handleOnClickStatsSwitch}
+              handleOnClickDeleteTodo={handleOnClickDeleteTodo}
             />
           }
         />
