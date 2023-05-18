@@ -3,7 +3,7 @@ import styles from "../App.module.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { BsCircle, BsCheckCircle } from "react-icons/bs";
 
-export default function Detail({ todos }) {
+export default function Detail({ todos, handleOnClickStatsSwitch }) {
   const params = useParams().id;
   console.log(params);
 
@@ -47,23 +47,26 @@ export default function Detail({ todos }) {
                   alignItems: "center",
                 }}
               >
-                {t.isActive ? (
-                  <BsCircle
-                    style={{
-                      fontSize: 35,
-                      color: "var(--color-accent)",
-                      marginRight: 20,
-                    }}
-                  />
-                ) : (
-                  <BsCheckCircle
-                    style={{
-                      fontSize: 35,
-                      color: "var(--color-accent)",
-                      marginRight: 20,
-                    }}
-                  />
-                )}
+                <button
+                  className={styles.DetailIsActiveBtn}
+                  onClick={() => handleOnClickStatsSwitch(t.id)}
+                >
+                  {t.isActive ? (
+                    <BsCircle
+                      style={{
+                        fontSize: 35,
+                        color: "var(--color-accent)",
+                      }}
+                    />
+                  ) : (
+                    <BsCheckCircle
+                      style={{
+                        fontSize: 35,
+                        color: "var(--color-accent)",
+                      }}
+                    />
+                  )}
+                </button>
                 <p
                   style={{
                     margin: 0,

@@ -23,7 +23,15 @@ export default function Router({
             />
           }
         />
-        <Route path="/detail/:id" element={<Detail todos={todos} />} />
+        <Route
+          path="/detail/:id"
+          element={
+            <Detail
+              todos={todos}
+              handleOnClickStatsSwitch={handleOnClickStatsSwitch}
+            />
+          }
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
