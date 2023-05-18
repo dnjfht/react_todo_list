@@ -105,6 +105,25 @@
   box-shadow: 2px 2px 6px var(--color-bg);
 
   position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ContentWrap {
+  width: 70%;
+}
+
+.StatsSwitchBtn {
+  background-color: transparent;
+  border: none;
+}
+
+.DeleteBtn {
+  background-color: transparent;
+  border: none;
 }
 
 .InputWrap {

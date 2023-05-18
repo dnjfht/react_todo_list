@@ -17,33 +17,46 @@ export default function Todo({ filterTodo, handleOnClickStatsSwitch }) {
         }}
       />
 
-      <button onClick={() => handleOnClickStatsSwitch(filterTodo.id)}>
-        {filterTodo.isActive ? <BsCircle /> : <BsCheckCircle />}
+      <button
+        onClick={() => handleOnClickStatsSwitch(filterTodo.id)}
+        className={styles.StatsSwitchBtn}
+      >
+        {filterTodo.isActive ? (
+          <BsCircle style={{ fontSize: 22, color: "var(--color-accent)" }} />
+        ) : (
+          <BsCheckCircle />
+        )}
       </button>
 
-      <h2 style={{ margin: 0, color: "var(--color-text)" }}>
-        {filterTodo.date}
-      </h2>
-      <p
-        style={{
-          margin: 0,
-          marginTop: 4,
-          fontSize: 14,
-          color: "var(--color-gray)",
-        }}
-      >
-        {filterTodo.day}
-      </p>
-      <p
-        style={{
-          margin: 0,
-          marginTop: 12,
-          fontSize: 17,
-          color: "var(--color-text)",
-        }}
-      >
-        {filterTodo.title}
-      </p>
+      <div className={styles.ContentWrap}>
+        <h2 style={{ margin: 0, color: "var(--color-text)" }}>
+          {filterTodo.date}
+        </h2>
+        <p
+          style={{
+            margin: 0,
+            marginTop: 4,
+            fontSize: 14,
+            color: "var(--color-gray)",
+          }}
+        >
+          {filterTodo.day}
+        </p>
+        <p
+          style={{
+            margin: 0,
+            marginTop: 12,
+            fontSize: 17,
+            color: "var(--color-text)",
+          }}
+        >
+          {filterTodo.title}
+        </p>
+      </div>
+
+      <button className={styles.DeleteBtn}>
+        <HiTrash style={{ fontSize: 22, color: "var(--color-accent)" }} />
+      </button>
     </div>
   );
 }
