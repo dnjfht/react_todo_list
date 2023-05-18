@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./App.module.css";
 import { BsFillPlusCircleFill, BsFillXCircleFill } from "react-icons/bs";
 import InputWrap from "./components/InputWrap";
 import NavBar from "./components/NavBar";
 import { v4 as uuidv4 } from "uuid";
 import Router from "./Router/Router";
+import { DarkModeContext } from "./Context/DarkModeContext";
 
 const initialState = [
   {
@@ -62,7 +63,6 @@ function App() {
   const [todos, setTodos] = useState(initialState);
   const [title, setTitle] = useState("");
   const [appear, setAppear] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
 
   const filters = ["All", "Active", "Completed"];
   const [filter, setFilter] = useState(filters[0]);
@@ -122,16 +122,12 @@ function App() {
 
   console.log(todos);
 
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+
   return (
     <div className={styles.Wrap}>
       <div className={styles.Box}>
-        <NavBar
-          darkMode={darkMode}
-          setDarkMode={setDarkMode}
-          filters={filters}
-          filter={filter}
-          setFilter={setFilter}
-        />
+        <NavBar filters={filters} filter={filter} setFilter={setFilter} />
 
         <Router
           todos={todos}
