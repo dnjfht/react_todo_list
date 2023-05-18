@@ -4,7 +4,11 @@ import { ImQuill } from "react-icons/im";
 import { BsCircle, BsCheckCircle } from "react-icons/bs";
 import { HiTrash } from "react-icons/hi";
 
-export default function Todo({ filterTodo, handleOnClickStatsSwitch }) {
+export default function Todo({
+  filterTodo,
+  handleOnClickStatsSwitch,
+  handleOnClickDeleteTodo,
+}) {
   return (
     <div key={filterTodo.id} className={styles.Todo}>
       <ImQuill
@@ -24,12 +28,21 @@ export default function Todo({ filterTodo, handleOnClickStatsSwitch }) {
         {filterTodo.isActive ? (
           <BsCircle style={{ fontSize: 22, color: "var(--color-accent)" }} />
         ) : (
-          <BsCheckCircle />
+          <BsCheckCircle
+            style={{ fontSize: 22, color: "var(--color-accent)" }}
+          />
         )}
       </button>
 
       <div className={styles.ContentWrap}>
-        <h2 style={{ margin: 0, color: "var(--color-text)" }}>
+        <h2
+          style={{
+            fintSize: 22,
+            margin: 0,
+            color: "var(--color-text)",
+            textDecoration: filterTodo.isActive ? "" : "line-through",
+          }}
+        >
           {filterTodo.date}
         </h2>
         <p
@@ -38,6 +51,7 @@ export default function Todo({ filterTodo, handleOnClickStatsSwitch }) {
             marginTop: 4,
             fontSize: 14,
             color: "var(--color-gray)",
+            textDecoration: filterTodo.isActive ? "" : "line-through",
           }}
         >
           {filterTodo.day}
@@ -48,14 +62,18 @@ export default function Todo({ filterTodo, handleOnClickStatsSwitch }) {
             marginTop: 12,
             fontSize: 17,
             color: "var(--color-text)",
+            textDecoration: filterTodo.isActive ? "" : "line-through",
           }}
         >
           {filterTodo.title}
         </p>
       </div>
 
-      <button className={styles.DeleteBtn}>
-        <HiTrash style={{ fontSize: 22, color: "var(--color-accent)" }} />
+      <button
+        className={styles.DeleteBtn}
+        onClick={() => handleOnClickDeleteTodo(filterTodo.id)}
+      >
+        <HiTrash style={{ fontSize: 20, color: "var(--color-white)" }} />
       </button>
     </div>
   );

@@ -114,6 +114,10 @@ function App() {
     );
   };
 
+  const handleOnClickDeleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   console.log(todos);
 
   return (
@@ -130,6 +134,7 @@ function App() {
         <TodoList
           filtered={filtered}
           handleOnClickStatsSwitch={handleOnClickStatsSwitch}
+          handleOnClickDeleteTodo={handleOnClickDeleteTodo}
         />
 
         {appear && (
