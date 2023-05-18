@@ -59,6 +59,8 @@
   font-weight: 500;
 
   transition: all 0.5s;
+
+  cursor: pointer;
 }
 
 .FilterBtn:focus {

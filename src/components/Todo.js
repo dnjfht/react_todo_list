@@ -3,6 +3,7 @@ import styles from "../App.module.css";
 import { ImQuill } from "react-icons/im";
 import { BsCircle, BsCheckCircle } from "react-icons/bs";
 import { HiTrash } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 
 export default function Todo({
   filterTodo,
@@ -10,6 +11,8 @@ export default function Todo({
   handleOnClickDeleteTodo,
 }) {
   const [appearDeleteBtn, setAppearDeleteBtn] = useState(false);
+
+  const navigate = useNavigate();
 
   return (
     <div
@@ -68,6 +71,9 @@ export default function Todo({
           {filterTodo.day}
         </p>
         <p
+          onClick={() => {
+            navigate(`/detail/${filterTodo.id}`);
+          }}
           style={{
             margin: 0,
             marginTop: 12,
@@ -76,6 +82,7 @@ export default function Todo({
               ? "var(--color-text)"
               : "var(--color-bg)",
             textDecoration: filterTodo.isActive ? "" : "line-through",
+            cursor: "pointer",
           }}
         >
           {filterTodo.title}
@@ -90,7 +97,7 @@ export default function Todo({
           <HiTrash style={{ fontSize: 20, color: "var(--color-white)" }} />
         </button>
       ) : (
-        <div></div>
+        <div style={{ width: 26, height: 26 }}></div>
       )}
     </div>
   );
