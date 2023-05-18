@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../App.module.css";
 import { ImQuill } from "react-icons/im";
 import { BsCircle, BsCheckCircle } from "react-icons/bs";
@@ -9,8 +9,19 @@ export default function Todo({
   handleOnClickStatsSwitch,
   handleOnClickDeleteTodo,
 }) {
+  const [appearDeleteBtn, setAppearDeleteBtn] = useState(false);
+
   return (
-    <div key={filterTodo.id} className={styles.Todo}>
+    <div
+      key={filterTodo.id}
+      className={styles.Todo}
+      onMouseOver={() => {
+        setAppearDeleteBtn(true);
+      }}
+      onMouseLeave={() => {
+        setAppearDeleteBtn(false);
+      }}
+    >
       <ImQuill
         style={{
           color: "var(--color-accent)",
@@ -71,12 +82,16 @@ export default function Todo({
         </p>
       </div>
 
-      <button
-        className={styles.DeleteBtn}
-        onClick={() => handleOnClickDeleteTodo(filterTodo.id)}
-      >
-        <HiTrash style={{ fontSize: 20, color: "var(--color-white)" }} />
-      </button>
+      {appearDeleteBtn ? (
+        <button
+          className={styles.DeleteBtn}
+          onClick={() => handleOnClickDeleteTodo(filterTodo.id)}
+        >
+          <HiTrash style={{ fontSize: 20, color: "var(--color-white)" }} />
+        </button>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }
