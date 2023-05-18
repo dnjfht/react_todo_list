@@ -5,6 +5,7 @@ import InputWrap from "./components/InputWrap";
 import NavBar from "./components/NavBar";
 import TodoList from "./components/TodoList";
 import { v4 as uuidv4 } from "uuid";
+import Router from "./Router/Router";
 
 const initialState = [
   {
@@ -92,10 +93,12 @@ function App() {
 
     const newTodo = {
       id: uuidv4(),
-      date: `${today.getFullYear()}년 ${today.getMonth()}월 ${today.getDate()}일`,
+      date: `${today.getFullYear()}년 ${
+        today.getMonth() + 1
+      }월 ${today.getDate()}일`,
       day: `${day[today.getDay()]}요일`,
       title: title,
-      isActive: false,
+      isActive: true,
     };
 
     setTodos((prev) => [...prev, newTodo]);
@@ -131,7 +134,7 @@ function App() {
           setFilter={setFilter}
         />
 
-        <TodoList
+        <Router
           filtered={filtered}
           handleOnClickStatsSwitch={handleOnClickStatsSwitch}
           handleOnClickDeleteTodo={handleOnClickDeleteTodo}

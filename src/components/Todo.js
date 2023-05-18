@@ -61,7 +61,9 @@ export default function Todo({
             margin: 0,
             marginTop: 12,
             fontSize: 17,
-            color: "var(--color-text)",
+            color: filterTodo.isActive
+              ? "var(--color-text)"
+              : "var(--color-bg)",
             textDecoration: filterTodo.isActive ? "" : "line-through",
           }}
         >
