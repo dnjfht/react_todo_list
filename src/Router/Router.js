@@ -8,6 +8,7 @@ export default function Router({
   filtered,
   handleOnClickStatsSwitch,
   handleOnClickDeleteTodo,
+  todos,
 }) {
   return (
     <>
@@ -22,7 +23,7 @@ export default function Router({
             />
           }
         />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail todos={todos} />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>

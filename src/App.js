@@ -3,7 +3,6 @@ import styles from "./App.module.css";
 import { BsFillPlusCircleFill, BsFillXCircleFill } from "react-icons/bs";
 import InputWrap from "./components/InputWrap";
 import NavBar from "./components/NavBar";
-import TodoList from "./components/TodoList";
 import { v4 as uuidv4 } from "uuid";
 import Router from "./Router/Router";
 
@@ -135,6 +134,7 @@ function App() {
         />
 
         <Router
+          todos={todos}
           filtered={filtered}
           handleOnClickStatsSwitch={handleOnClickStatsSwitch}
           handleOnClickDeleteTodo={handleOnClickDeleteTodo}
