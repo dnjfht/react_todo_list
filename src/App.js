@@ -118,7 +118,11 @@ function App() {
   };
 
   const handleOnClickDeleteTodo = (id) => {
+    // const id = id;
+
     setTodos(todos.filter((todo) => todo.id !== id));
+
+    // dispatch({ type: "deleted" });
   };
 
   console.log(todos);
