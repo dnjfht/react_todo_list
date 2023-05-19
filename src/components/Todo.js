@@ -80,7 +80,7 @@ export default function Todo({
             fontSize: 17,
             color: filterTodo.isActive
               ? "var(--color-text)"
-              : "var(--color-bg)",
+              : "var(--color-gray)",
             textDecoration: filterTodo.isActive ? "" : "line-through",
             cursor: "pointer",
           }}

@@ -97,7 +97,7 @@ export default function Detail({
                       textDecoration: t.isActive ? "" : "line-through",
                       color: t.isActive
                         ? "var(--color-text)"
-                        : "var(--color-bg)",
+                        : "var(--color-gray)",
                     }}
                   >
                     {t.title}

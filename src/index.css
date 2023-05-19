@@ -1,5 +1,7 @@
 :root {
+  --color-line: #e2e2eb;
   --color-bg: #e2e2eb;
+  --color-box-bg: #ffffff;
   --color-white: #ffffff;
   --color-text: #2e2f30;
   --color-gray: #8f9194;
@@ -10,6 +12,30 @@
   --color-scrollbar-track: #eeeeef;
   --color-shadow: #d9d9db;
   --color-input-wrap-bg: #f6f6f6;
+  --color-input-bg: #ffffff;
+  --color-input-border: #e2e2eb;
+  --color-submit-bg: #ffffff;
+  --color-submit-color: #35b380;
+}
+
+html.dark {
+  --color-line: #646468;
+  --color-bg: #121212;
+  --color-box-bg: #282727;
+  --color-white: #ffffff;
+  --color-text: #ffffff;
+  --color-gray: #b6b7bb;
+  --color-sub-text: #ced1d5;
+  --color-accent: #35b380;
+  --color-accent-hover: #1c865c;
+  --color-scrollbar: #35b380;
+  --color-scrollbar-track: #747474;
+  --color-shadow: #000000;
+  --color-input-wrap-bg: #151515;
+  --color-input-bg: #151515;
+  --color-input-border: #646468;
+  --color-submit-bg: #151515;
+  --color-submit-color: #35b380;
 }
 
 body {
