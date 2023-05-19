@@ -101,6 +101,8 @@ function App() {
 
     setTodos((prev) => [...prev, newTodo]);
 
+    // dispatch({ type: "added", newTodo });
+
     setTitle("");
   };
 
