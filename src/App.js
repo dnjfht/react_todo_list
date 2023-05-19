@@ -1,11 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import styles from "./App.module.css";
 import { BsFillPlusCircleFill, BsFillXCircleFill } from "react-icons/bs";
 import InputWrap from "./components/InputWrap";
 import NavBar from "./components/NavBar";
 import { v4 as uuidv4 } from "uuid";
 import Router from "./Router/Router";
-import { DarkModeContext } from "./Context/DarkModeContext";
 
 const initialState = [
   {
@@ -121,8 +120,6 @@ function App() {
   };
 
   console.log(todos);
-
-  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   return (
     <div className={styles.Wrap}>
