@@ -4,11 +4,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import { BsCircle, BsCheckCircle } from "react-icons/bs";
 import { HiTrash } from "react-icons/hi";
 
-export default function Detail({
-  todos,
-  handleOnClickStatsSwitch,
-  handleOnClickDeleteTodo,
-}) {
+export default function Detail({ todos, dispatch }) {
+  const [appearDeleteBtn, setAppearDeleteBtn] = useState(false);
+
   const params = useParams().id;
   console.log(params);
 
@@ -17,7 +15,13 @@ export default function Detail({
 
   const navigate = useNavigate();
 
-  const [appearDeleteBtn, setAppearDeleteBtn] = useState(false);
+  const handleOnClickStatsSwitch = (id) => {
+    dispatch({ type: "statsSwitch", id });
+  };
+
+  const handleOnClickDeleteTodo = (id) => {
+    dispatch({ type: "deleted", id });
+  };
 
   return (
     <div className={styles.Detail}>

@@ -5,14 +5,18 @@ import { BsCircle, BsCheckCircle } from "react-icons/bs";
 import { HiTrash } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 
-export default function Todo({
-  filterTodo,
-  handleOnClickStatsSwitch,
-  handleOnClickDeleteTodo,
-}) {
+export default function Todo({ filterTodo, dispatch }) {
   const [appearDeleteBtn, setAppearDeleteBtn] = useState(false);
 
   const navigate = useNavigate();
+
+  const handleOnClickStatsSwitch = (id) => {
+    dispatch({ type: "statsSwitch", id });
+  };
+
+  const handleOnClickDeleteTodo = (id) => {
+    dispatch({ type: "deleted", id });
+  };
 
   return (
     <div

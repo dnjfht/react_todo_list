@@ -62,8 +62,6 @@ const initialState = [
 function App() {
   // const [todos, setTodos] = useState(initialState);
   const [todos, dispatch] = useReducer(todosReducer, initialState);
-
-  const [title, setTitle] = useState("");
   const [appear, setAppear] = useState(false);
 
   const filters = ["All", "Active", "Completed"];
@@ -81,74 +79,16 @@ function App() {
     }
   }
 
-  const handleOnChangeTitle = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const handleOnClickAddTodo = (e) => {
-    e.preventDefault();
-
-    let today = new Date();
-
-    const day = ["일", "월", "화", "수", "목", "금", "토"];
-
-    const newTodo = {
-      id: uuidv4(),
-      date: `${today.getFullYear()}년 ${
-        today.getMonth() + 1
-      }월 ${today.getDate()}일`,
-      day: `${day[today.getDay()]}요일`,
-      title: title,
-      isActive: true,
-    };
-
-    // setTodos((prev) => [...prev, newTodo]);
-
-    dispatch({ type: "added", newTodo });
-
-    setTitle("");
-  };
-
-  const handleOnClickStatsSwitch = (id) => {
-    // setTodos(
-    //   todos.map((todo) => {
-    //     if (todo.id === id) {
-    //       return { ...todo, isActive: !todo.isActive };
-    //     }
-    //     return todo;
-    //   })
-    // );
-
-    dispatch({ type: "statsSwitch", id });
-  };
-
-  const handleOnClickDeleteTodo = (id) => {
-    // setTodos(todos.filter((todo) => todo.id !== id));
-
-    dispatch({ type: "deleted", id });
-  };
-
   console.log(todos);
 
   return (
     <div className={styles.Wrap}>
       <div className={styles.Box}>
-        <NavBar filters={filters} filter={filter} setFilter={setFilter} />
+        <NavBar filters={filters} setFilter={setFilter} />
 
-        <Router
-          todos={todos}
-          filtered={filtered}
-          handleOnClickStatsSwitch={handleOnClickStatsSwitch}
-          handleOnClickDeleteTodo={handleOnClickDeleteTodo}
-        />
+        <Router todos={todos} dispatch={dispatch} filtered={filtered} />
 
-        {appear && (
-          <InputWrap
-            handleOnClickAddTodo={handleOnClickAddTodo}
-            handleOnChangeTitle={handleOnChangeTitle}
-            title={title}
-          />
-        )}
+        {appear && <InputWrap dispatch={dispatch} />}
 
         <button
           onClick={() => {

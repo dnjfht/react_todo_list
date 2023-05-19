@@ -2,11 +2,7 @@ import React from "react";
 import styles from "../App.module.css";
 import Todo from "./Todo";
 
-export default function TodoList({
-  filtered,
-  handleOnClickStatsSwitch,
-  handleOnClickDeleteTodo,
-}) {
+export default function TodoList({ filtered, dispatch }) {
   return (
     <div className={styles.TodoList}>
       {filtered.map((filterTodo) => {
@@ -14,8 +10,7 @@ export default function TodoList({
           <Todo
             key={filterTodo.id}
             filterTodo={filterTodo}
-            handleOnClickStatsSwitch={handleOnClickStatsSwitch}
-            handleOnClickDeleteTodo={handleOnClickDeleteTodo}
+            dispatch={dispatch}
           />
         );
       })}

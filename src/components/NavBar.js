@@ -3,9 +3,7 @@ import styles from "../App.module.css";
 import { CiLight, CiDark } from "react-icons/ci";
 import { DarkModeContext } from "../Context/DarkModeContext";
 
-export default function NavBar({ filters, filter, setFilter }) {
-  console.log(filter);
-
+export default function NavBar({ filters, setFilter }) {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   return (

@@ -4,34 +4,17 @@ import TodoList from "../components/TodoList";
 import Detail from "../components/Detail";
 import NotFoundPage from "../components/NotFoundPage";
 
-export default function Router({
-  filtered,
-  handleOnClickStatsSwitch,
-  handleOnClickDeleteTodo,
-  todos,
-}) {
+export default function Router({ filtered, todos, dispatch }) {
   return (
     <>
       <Routes>
         <Route
           path="/"
-          element={
-            <TodoList
-              filtered={filtered}
-              handleOnClickDeleteTodo={handleOnClickDeleteTodo}
-              handleOnClickStatsSwitch={handleOnClickStatsSwitch}
-            />
-          }
+          element={<TodoList dispatch={dispatch} filtered={filtered} />}
         />
         <Route
           path="/detail/:id"
-          element={
-            <Detail
-              todos={todos}
-              handleOnClickStatsSwitch={handleOnClickStatsSwitch}
-              handleOnClickDeleteTodo={handleOnClickDeleteTodo}
-            />
-          }
+          element={<Detail todos={todos} dispatch={dispatch} />}
         />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
