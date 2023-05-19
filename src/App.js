@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import styles from "./App.module.css";
 import { BsFillPlusCircleFill, BsFillXCircleFill } from "react-icons/bs";
 import InputWrap from "./components/InputWrap";
@@ -61,7 +61,10 @@ const initialState = [
 
 function App() {
   // const [todos, setTodos] = useState(initialState);
-  const [todos, dispatch] = useReducer(todosReducer, initialState);
+  const [todos, dispatch] = useReducer(
+    todosReducer,
+    readTodosFromLocalStorage()
+  );
   const [appear, setAppear] = useState(false);
 
   const filters = ["All", "Active", "Completed"];
@@ -80,6 +83,15 @@ function App() {
   }
 
   console.log(todos);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  function readTodosFromLocalStorage() {
+    const todos = localStorage.getItem("todos");
+    return todos ? JSON.parse(todos) : [];
+  }
 
   return (
     <div className={styles.Wrap}>
