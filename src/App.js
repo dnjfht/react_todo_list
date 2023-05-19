@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import styles from "./App.module.css";
 import { BsFillPlusCircleFill, BsFillXCircleFill } from "react-icons/bs";
 import InputWrap from "./components/InputWrap";
 import NavBar from "./components/NavBar";
 import { v4 as uuidv4 } from "uuid";
 import Router from "./Router/Router";
+import todosReducer from "./Reducer/todos-reducer";
 
 const initialState = [
   {
@@ -59,7 +60,9 @@ const initialState = [
 ];
 
 function App() {
-  const [todos, setTodos] = useState(initialState);
+  // const [todos, setTodos] = useState(initialState);
+  const [todos, dispatch] = useReducer(todosReducer, initialState);
+
   const [title, setTitle] = useState("");
   const [appear, setAppear] = useState(false);
 
@@ -99,30 +102,30 @@ function App() {
       isActive: true,
     };
 
-    setTodos((prev) => [...prev, newTodo]);
+    // setTodos((prev) => [...prev, newTodo]);
 
-    // dispatch({ type: "added", newTodo });
+    dispatch({ type: "added", newTodo });
 
     setTitle("");
   };
 
   const handleOnClickStatsSwitch = (id) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, isActive: !todo.isActive };
-        }
-        return todo;
-      })
-    );
+    // setTodos(
+    //   todos.map((todo) => {
+    //     if (todo.id === id) {
+    //       return { ...todo, isActive: !todo.isActive };
+    //     }
+    //     return todo;
+    //   })
+    // );
+
+    dispatch({ type: "statsSwitch", id });
   };
 
   const handleOnClickDeleteTodo = (id) => {
-    // const id = id;
+    // setTodos(todos.filter((todo) => todo.id !== id));
 
-    setTodos(todos.filter((todo) => todo.id !== id));
-
-    // dispatch({ type: "deleted" });
+    dispatch({ type: "deleted", id });
   };
 
   console.log(todos);

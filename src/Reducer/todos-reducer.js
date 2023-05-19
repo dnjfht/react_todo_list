@@ -6,6 +6,8 @@ export default function todosReducer(todos, action) {
       return [...todos, newTodo];
     }
     case "statsSwitch": {
+      const { id } = action;
+
       return todos.map((todo) => {
         if (todo.id === id) {
           return { ...todo, isActive: !todo.isActive };
@@ -14,6 +16,8 @@ export default function todosReducer(todos, action) {
       });
     }
     case "deleted": {
+      const { id } = action;
+
       return todos.filter((todo) => todo.id !== id);
     }
     default: {
